@@ -1,0 +1,48 @@
+<!-- <ul nz-menu [nzTheme]="'dark'" [nzMode]="isCollapsed?'vertical':'inline'">
+  <li nz-submenu>
+    <span title>
+      <i class="anticon anticon-user"></i>
+      <span class="nav-text">User</span>
+    </span>
+    <ul>
+      <li nz-menu-item>Tom</li>
+      <li nz-menu-item>Bill</li>
+      <li nz-menu-item>Alex</li>
+    </ul>
+  </li>
+  <li nz-submenu>
+    <span title>
+      <i class="anticon anticon-team"></i>
+      <span class="nav-text">Team</span>
+    </span>
+    <ul>
+      <li nz-menu-item>Team 1</li>
+      <li nz-menu-item>Team 2</li>
+    </ul>
+  </li>
+  <li nz-menu-item>
+    <span>
+      <i class="anticon anticon-file"></i>
+      <span class="nav-text">File</span>
+    </span>
+  </li>
+</ul> -->
+<ul nz-menu [nzTheme]="'dark'" [nzMode]="isCollapsed?'vertical':'inline'">
+  <div *ngFor="let item of routes">
+    <li style="outline: none" nz-menu-item *ngIf="item.children.length == 0" routerLink="/{{item.path}}">
+      <span>
+        <i class="{{item.icon}}"></i>
+        <span class="nav-text">{{item.path}}</span>
+      </span>
+    </li>
+    <li nz-submenu *ngIf="item.children.length > 0">
+      <span title>
+        <i class="{{item.icon}}"></i>
+        <span class="nav-text">{{item.name}}</span>
+      </span>
+      <ul>
+        <li style="outline: none" nz-menu-item *ngFor="let menu of item.children" routerLink='/{{item.path}}/{{menu.path}}'>{{menu.name}}</li>
+      </ul>
+    </li>
+  </div>
+</ul>
