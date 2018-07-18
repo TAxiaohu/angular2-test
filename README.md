@@ -1,4 +1,5 @@
 # TywlWeb
+学习typescript的时候 自己搭了个架构。。。过于low 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
 
